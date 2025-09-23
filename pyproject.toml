@@ -1,0 +1,22 @@
+[project]
+name = "my-env"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+dependencies = [
+    "accelerate==0.18.0",  # Comes with huggingface-hub==0.13.3 and fsspec==2023.3.0
+    "circuitsvis==1.39.0",
+    "datasets==2.16.1",  # While v2.11.0 is the latest release at time of blog post, using it results in error; v2.21.0 is too high (requires newer pyarrow), so I went with something in the middle: v2.16.1
+    "einops==0.6.0",
+    "fancy_einsum==0.0.3",
+    "kaleido==0.2.1",  # For plotly
+    "numpy==1.24.2",
+    "plotly==5.14.0",
+    "pyarrow==11.0.0",
+    "PyYAML==6.0",
+    "torch==1.13.1",  # This is the last release before v2.0.0. While v2.0.0 is from March 2023 (so just before blog was posted), it is too new for transformer_lens so it can't have been used
+    "torchtyping==0.1.4",
+    "transformers==4.27.4",
+    "transformer_lens==1.2.1",
+    "trlx @ git+https://github.com/CarperAI/trlx.git", # Technically, should use v0.6.0 (March 2023, last version before date of blog post) instead of v0.7.0, hosted  (June 2023), but that release gives an error because it depends on a pre-release / dev version of ray, hosted on a private S3 bucket
+]
